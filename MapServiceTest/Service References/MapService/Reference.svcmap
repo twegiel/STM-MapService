@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1fae3b6b-b470-4ccb-963f-95d8d5657af3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4321/MapService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MapService.xsd" MetadataType="Schema" ID="e21d8f5d-a128-405e-9577-2710bf8b0d03" SourceId="1" SourceUrl="http://localhost:4321/MapService?xsd=xsd0" />
+    <MetadataFile FileName="MapService.wsdl" MetadataType="Wsdl" ID="6c3da62c-73a8-4888-bd4a-34acaac409dc" SourceId="1" SourceUrl="http://localhost:4321/MapService?wsdl" />
+    <MetadataFile FileName="MapService.disco" MetadataType="Disco" ID="06f5cf78-7526-4d79-b6c9-764ec614da45" SourceId="1" SourceUrl="http://localhost:4321/MapService?disco" />
+    <MetadataFile FileName="MapService1.xsd" MetadataType="Schema" ID="b9b1a22d-8070-4c70-a7ce-9ca7d6baa853" SourceId="1" SourceUrl="http://localhost:4321/MapService?xsd=xsd1" />
+    <MetadataFile FileName="MapService1.wsdl" MetadataType="Wsdl" ID="1973c01f-9f19-4d07-94ff-34ad55673a34" SourceId="1" SourceUrl="http://localhost:4321/MapService?wsdl=wsdl0" />
+    <MetadataFile FileName="MapService2.xsd" MetadataType="Schema" ID="b3e4e3e4-83cc-4ad0-9651-3847fc1c4687" SourceId="1" SourceUrl="http://localhost:4321/MapService?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

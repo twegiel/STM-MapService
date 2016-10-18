@@ -4,6 +4,11 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseResponse">
         <xs:sequence>
+          <xs:element minOccurs="0" name="LatitudeMax" type="xs:double" />
+          <xs:element minOccurs="0" name="LatitudeMin" type="xs:double" />
+          <xs:element minOccurs="0" name="LongitudeMax" type="xs:double" />
+          <xs:element minOccurs="0" name="LongitudeMin" type="xs:double" />
+          <xs:element minOccurs="0" name="MapName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Thumbnail" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
@@ -23,6 +28,7 @@
       <xs:extension base="tns:BaseResponse">
         <xs:sequence>
           <xs:element minOccurs="0" name="DetailedImage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MapName" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

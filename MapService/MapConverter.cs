@@ -8,9 +8,9 @@ namespace MapService
     {
         private Image _image;
 
-        public MapConverter(string pathTomap)
+        public MapConverter(string mapPath)
         {
-            _image = Image.FromFile(pathTomap);
+            _image = Image.FromFile(mapPath);
         }
 
         public MapConverter TransformToThumbnail(Size thumbnailSize)

@@ -47,8 +47,10 @@
     <Compile Include="CommandObjects\BaseResponse.cs" />
     <Compile Include="CommandObjects\GetDetailedMapByPixelLocationResponse.cs" />
     <Compile Include="CommandObjects\GetMapThumbnailResponse.cs" />
+    <Compile Include="Helpers\XmlDatabaseReader.cs" />
     <Compile Include="MapConverter.cs" />
-    <Compile Include="MapCalculationUtilities.cs" />
+    <Compile Include="Helpers\MapCalculationUtilities.cs" />
+    <Compile Include="MapMetadata.cs" />
     <Compile Include="ServiceProcessorWrapper.cs" />
     <Compile Include="IMapService.cs" />
     <Compile Include="MapService.cs" />
@@ -60,6 +62,9 @@
   <ItemGroup>
     <Content Include="Maps\radom.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Maps\mapMetadata.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

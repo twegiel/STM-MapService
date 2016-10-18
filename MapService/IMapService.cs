@@ -7,12 +7,12 @@ namespace MapService
     public interface IMapService
     {
         [OperationContract]
-        GetMapThumbnailResponse GetMapThumbnail();
+        GetMapThumbnailResponse GetMapThumbnail(string mapName);
 
         [OperationContract]
-        GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(int x1, int y1, int x2, int y2);
+        GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(string mapName, int x1, int y1, int x2, int y2);
 
         [OperationContract]
-        bool GetDetailedMapByCoordinates(double latitude, double longitude);
+        bool GetDetailedMapByCoordinates(string mapName, double latitude, double longitude);
     }
 }

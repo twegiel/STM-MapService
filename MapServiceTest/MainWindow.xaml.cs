@@ -23,7 +23,7 @@ namespace MapServiceTest
         {
             MapService.MapServiceClient client = new MapService.MapServiceClient();
 
-            var response = client.GetMapThumbnail();
+            var response = client.GetMapThumbnail("radom");
             var thumbnailByte = Convert.FromBase64String(response.Thumbnail);
             ShowImage(thumbnailByte);
             SaveImage(thumbnailByte, "thumbnail");
@@ -43,7 +43,7 @@ namespace MapServiceTest
         private void Button_Click_DetailedImage(object sender, RoutedEventArgs e)
         {
             MapService.MapServiceClient client = new MapService.MapServiceClient();
-            var response = client.GetDetailedMapByPixelLocation(181, 121, 290, 220);
+            var response = client.GetDetailedMapByPixelLocation("radom", 181, 121, 290, 220);
             var imageBytes = Convert.FromBase64String(response.DetailedImage);
             ShowImage(imageBytes);
             SaveImage(imageBytes, "detailed");

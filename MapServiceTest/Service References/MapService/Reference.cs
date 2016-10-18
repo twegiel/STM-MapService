@@ -101,6 +101,9 @@ namespace MapServiceTest.MapService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailedImageField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MapNameField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DetailedImage {
             get {
@@ -113,6 +116,19 @@ namespace MapServiceTest.MapService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MapName {
+            get {
+                return this.MapNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MapNameField, value) != true)) {
+                    this.MapNameField = value;
+                    this.RaisePropertyChanged("MapName");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -122,7 +138,87 @@ namespace MapServiceTest.MapService {
     public partial class GetMapThumbnailResponse : MapServiceTest.MapService.BaseResponse {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LatitudeMaxField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LatitudeMinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LongitudeMaxField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LongitudeMinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MapNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ThumbnailField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LatitudeMax {
+            get {
+                return this.LatitudeMaxField;
+            }
+            set {
+                if ((this.LatitudeMaxField.Equals(value) != true)) {
+                    this.LatitudeMaxField = value;
+                    this.RaisePropertyChanged("LatitudeMax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LatitudeMin {
+            get {
+                return this.LatitudeMinField;
+            }
+            set {
+                if ((this.LatitudeMinField.Equals(value) != true)) {
+                    this.LatitudeMinField = value;
+                    this.RaisePropertyChanged("LatitudeMin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LongitudeMax {
+            get {
+                return this.LongitudeMaxField;
+            }
+            set {
+                if ((this.LongitudeMaxField.Equals(value) != true)) {
+                    this.LongitudeMaxField = value;
+                    this.RaisePropertyChanged("LongitudeMax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LongitudeMin {
+            get {
+                return this.LongitudeMinField;
+            }
+            set {
+                if ((this.LongitudeMinField.Equals(value) != true)) {
+                    this.LongitudeMinField = value;
+                    this.RaisePropertyChanged("LongitudeMin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MapName {
+            get {
+                return this.MapNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MapNameField, value) != true)) {
+                    this.MapNameField = value;
+                    this.RaisePropertyChanged("MapName");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Thumbnail {
@@ -143,22 +239,22 @@ namespace MapServiceTest.MapService {
     public interface IMapService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetMapThumbnail", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetMapThumbnailResponse")]
-        MapServiceTest.MapService.GetMapThumbnailResponse GetMapThumbnail();
+        MapServiceTest.MapService.GetMapThumbnailResponse GetMapThumbnail(string mapName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetMapThumbnail", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetMapThumbnailResponse")]
-        System.Threading.Tasks.Task<MapServiceTest.MapService.GetMapThumbnailResponse> GetMapThumbnailAsync();
+        System.Threading.Tasks.Task<MapServiceTest.MapService.GetMapThumbnailResponse> GetMapThumbnailAsync(string mapName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByPixelLocation", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByPixelLocationResponse")]
-        MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(int x1, int y1, int x2, int y2);
+        MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(string mapName, int x1, int y1, int x2, int y2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByPixelLocation", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByPixelLocationResponse")]
-        System.Threading.Tasks.Task<MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse> GetDetailedMapByPixelLocationAsync(int x1, int y1, int x2, int y2);
+        System.Threading.Tasks.Task<MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse> GetDetailedMapByPixelLocationAsync(string mapName, int x1, int y1, int x2, int y2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByCoordinates", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByCoordinatesResponse")]
-        bool GetDetailedMapByCoordinates(double latitude, double longitude);
+        bool GetDetailedMapByCoordinates(string mapName, double latitude, double longitude);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByCoordinates", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByCoordinatesResponse")]
-        System.Threading.Tasks.Task<bool> GetDetailedMapByCoordinatesAsync(double latitude, double longitude);
+        System.Threading.Tasks.Task<bool> GetDetailedMapByCoordinatesAsync(string mapName, double latitude, double longitude);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -188,28 +284,28 @@ namespace MapServiceTest.MapService {
                 base(binding, remoteAddress) {
         }
         
-        public MapServiceTest.MapService.GetMapThumbnailResponse GetMapThumbnail() {
-            return base.Channel.GetMapThumbnail();
+        public MapServiceTest.MapService.GetMapThumbnailResponse GetMapThumbnail(string mapName) {
+            return base.Channel.GetMapThumbnail(mapName);
         }
         
-        public System.Threading.Tasks.Task<MapServiceTest.MapService.GetMapThumbnailResponse> GetMapThumbnailAsync() {
-            return base.Channel.GetMapThumbnailAsync();
+        public System.Threading.Tasks.Task<MapServiceTest.MapService.GetMapThumbnailResponse> GetMapThumbnailAsync(string mapName) {
+            return base.Channel.GetMapThumbnailAsync(mapName);
         }
         
-        public MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(int x1, int y1, int x2, int y2) {
-            return base.Channel.GetDetailedMapByPixelLocation(x1, y1, x2, y2);
+        public MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(string mapName, int x1, int y1, int x2, int y2) {
+            return base.Channel.GetDetailedMapByPixelLocation(mapName, x1, y1, x2, y2);
         }
         
-        public System.Threading.Tasks.Task<MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse> GetDetailedMapByPixelLocationAsync(int x1, int y1, int x2, int y2) {
-            return base.Channel.GetDetailedMapByPixelLocationAsync(x1, y1, x2, y2);
+        public System.Threading.Tasks.Task<MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse> GetDetailedMapByPixelLocationAsync(string mapName, int x1, int y1, int x2, int y2) {
+            return base.Channel.GetDetailedMapByPixelLocationAsync(mapName, x1, y1, x2, y2);
         }
         
-        public bool GetDetailedMapByCoordinates(double latitude, double longitude) {
-            return base.Channel.GetDetailedMapByCoordinates(latitude, longitude);
+        public bool GetDetailedMapByCoordinates(string mapName, double latitude, double longitude) {
+            return base.Channel.GetDetailedMapByCoordinates(mapName, latitude, longitude);
         }
         
-        public System.Threading.Tasks.Task<bool> GetDetailedMapByCoordinatesAsync(double latitude, double longitude) {
-            return base.Channel.GetDetailedMapByCoordinatesAsync(latitude, longitude);
+        public System.Threading.Tasks.Task<bool> GetDetailedMapByCoordinatesAsync(string mapName, double latitude, double longitude) {
+            return base.Channel.GetDetailedMapByCoordinatesAsync(mapName, latitude, longitude);
         }
     }
 }

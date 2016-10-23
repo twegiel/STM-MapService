@@ -251,10 +251,10 @@ namespace MapServiceTest.MapService {
         System.Threading.Tasks.Task<MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse> GetDetailedMapByPixelLocationAsync(string mapName, int x1, int y1, int x2, int y2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByCoordinates", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByCoordinatesResponse")]
-        bool GetDetailedMapByCoordinates(string mapName, double latitude, double longitude);
+        MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse GetDetailedMapByCoordinates(string mapName, double latitude1, double longitude1, double latitude2, double longitude2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByCoordinates", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByCoordinatesResponse")]
-        System.Threading.Tasks.Task<bool> GetDetailedMapByCoordinatesAsync(string mapName, double latitude, double longitude);
+        System.Threading.Tasks.Task<MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse> GetDetailedMapByCoordinatesAsync(string mapName, double latitude1, double longitude1, double latitude2, double longitude2);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -300,12 +300,12 @@ namespace MapServiceTest.MapService {
             return base.Channel.GetDetailedMapByPixelLocationAsync(mapName, x1, y1, x2, y2);
         }
         
-        public bool GetDetailedMapByCoordinates(string mapName, double latitude, double longitude) {
-            return base.Channel.GetDetailedMapByCoordinates(mapName, latitude, longitude);
+        public MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse GetDetailedMapByCoordinates(string mapName, double latitude1, double longitude1, double latitude2, double longitude2) {
+            return base.Channel.GetDetailedMapByCoordinates(mapName, latitude1, longitude1, latitude2, longitude2);
         }
         
-        public System.Threading.Tasks.Task<bool> GetDetailedMapByCoordinatesAsync(string mapName, double latitude, double longitude) {
-            return base.Channel.GetDetailedMapByCoordinatesAsync(mapName, latitude, longitude);
+        public System.Threading.Tasks.Task<MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse> GetDetailedMapByCoordinatesAsync(string mapName, double latitude1, double longitude1, double latitude2, double longitude2) {
+            return base.Channel.GetDetailedMapByCoordinatesAsync(mapName, latitude1, longitude1, latitude2, longitude2);
         }
     }
 }

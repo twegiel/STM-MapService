@@ -16,6 +16,7 @@
         <StackPanel Grid.Column="1">
             <Button Click="Button_Click_Thumbnail">Thumbnail</Button>
             <Button Click="Button_Click_DetailedImage">Detailed Image</Button>
+            <Button Click="Button_Click_ByCoordinates">By coordinates</Button>
         </StackPanel>
     </Grid>
 </Window>

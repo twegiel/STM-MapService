@@ -13,6 +13,6 @@ namespace MapService
         GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(string mapName, int x1, int y1, int x2, int y2);
 
         [OperationContract]
-        bool GetDetailedMapByCoordinates(string mapName, double latitude, double longitude);
+        GetDetailedMapByPixelLocationResponse GetDetailedMapByCoordinates(string mapName, double latitude1, double longitude1, double latitude2, double longitude2);
     }
 }

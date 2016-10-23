@@ -17,9 +17,37 @@ namespace MapService
             _thumbnailSize = new Size(500, 500);
         }
         
-        public bool GetDetailedMapByCoordinates(string mapName, double latitude, double longitude)
+        public GetDetailedMapByPixelLocationResponse GetDetailedMapByCoordinates(string mapName, 
+            double latitude1, double longitude1, double latitude2, double longitude2)
         {
-            throw new NotImplementedException();
+            return ServiceProcessorWrapper.Wrap(() =>
+            {
+                MapMetadata mapMetadata = _databaseReader.GetMapMetadata(mapName);
+                GeographicSize mapGeoSize = new GeographicSize(mapMetadata.MapWidth, mapMetadata.MapHeight);
+                Coordinates coordinates1 = new Coordinates(latitude1, longitude1);
+                Coordinates coordinates2 = new Coordinates(latitude2, longitude2);
+
+                if(!mapMetadata.IsCoordinatesOnMap(coordinates1) || !mapMetadata.IsCoordinatesOnMap(coordinates2))
+                {
+                    throw new ArgumentException("Provided map coordinates cannot be found on a map.");
+                }
+
+                MapCalculator mapCalculator = new MapCalculator(mapMetadata.PathToMap);
+                Point upLeftPoint = mapCalculator.GetPointOnOriginalSizeUsingCoordinates(mapMetadata, mapGeoSize, coordinates1);
+                Point downRightPoint = mapCalculator.GetPointOnOriginalSizeUsingCoordinates(mapMetadata, mapGeoSize, coordinates2);
+
+                byte[] detailedImage = new MapConverter(mapMetadata.PathToMap)
+                    .CropImage(upLeftPoint.X, upLeftPoint.Y, downRightPoint.X, downRightPoint.Y)
+                    .GetBytesOfTransformedImage();
+
+                GetDetailedMapByPixelLocationResponse response = new GetDetailedMapByPixelLocationResponse
+                {
+                    DetailedImage = Convert.ToBase64String(detailedImage),
+
+                };
+
+                return response;
+            });
         }
 
         public GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(string mapName, int x1, int y1, int x2, int y2)
@@ -28,10 +56,10 @@ namespace MapService
             {
                 MapMetadata mapMetadata = _databaseReader.GetMapMetadata(mapName);
 
-                var originalSize = MapCalculationUtilities.GetImageSize(mapMetadata.PathToMap);
+                MapCalculator mapCalculator = new MapCalculator(mapMetadata.PathToMap);
 
-                var upLeftPoint = MapCalculationUtilities.GetPointOnOriginalSize(originalSize, _thumbnailSize, x1, y1);
-                var downRightPoint = MapCalculationUtilities.GetPointOnOriginalSize(originalSize, _thumbnailSize, x2, y2);
+                Point upLeftPoint = mapCalculator.GetPointOnOriginalSize(_thumbnailSize, x1, y1);
+                Point downRightPoint = mapCalculator.GetPointOnOriginalSize(_thumbnailSize, x2, y2);
 
                 byte[] detailedImage = new MapConverter(mapMetadata.PathToMap)
                     .CropImage(upLeftPoint.X, upLeftPoint.Y, downRightPoint.X, downRightPoint.Y)

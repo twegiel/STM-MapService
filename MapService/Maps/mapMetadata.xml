@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <maps>
   <map name="radom" filename="radom.png">
-    <latitude min="51.395752" max="51.411855" />
-    <longitude min="21.143607" max="21.167409" />
+    <latitude min="51.3925985623709" max="51.4155492168901"/>
+    <longitude min="21.1455553210276" max="21.1814248323615"/>
   </map>
 </maps>

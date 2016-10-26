@@ -16,7 +16,7 @@ namespace MapService
         {
             get
             {
-                return Math.Abs(LatitudeMax - LatitudeMin);
+                return Math.Abs(LongitudeMax - LongitudeMin);
             }
         }
 
@@ -24,7 +24,7 @@ namespace MapService
         {
             get
             {
-                return Math.Abs(LongitudeMax - LongitudeMin);
+                return Math.Abs(LatitudeMax - LatitudeMin);
             }
         }
 

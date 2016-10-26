@@ -52,7 +52,7 @@ namespace MapServiceTest
         private void Button_Click_ByCoordinates(object sender, RoutedEventArgs e)
         {
             MapService.MapServiceClient client = new MapService.MapServiceClient();
-            var response = client.GetDetailedMapByCoordinates("radom", 51.408362, 21.149529, 51.404721, 21.154695);
+            var response = client.GetDetailedMapByCoordinates("radom", 51.40636896, 21.15990313, 51.40177882, 21.16707703);
             var imageBytes = Convert.FromBase64String(response.DetailedImage);
             ShowImage(imageBytes);
             SaveImage(imageBytes, "detailed");

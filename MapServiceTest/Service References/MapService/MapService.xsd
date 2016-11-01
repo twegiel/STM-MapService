@@ -15,6 +15,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCoordinatesBounds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mapName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCoordinatesBoundsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MapService.CommandObjects" minOccurs="0" name="GetCoordinatesBoundsResult" nillable="true" type="q2:GetCoordinatesBoundsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetDetailedMapByPixelLocation">
     <xs:complexType>
       <xs:sequence>
@@ -29,7 +43,7 @@
   <xs:element name="GetDetailedMapByPixelLocationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MapService.CommandObjects" minOccurs="0" name="GetDetailedMapByPixelLocationResult" nillable="true" type="q2:GetDetailedMapByPixelLocationResponse" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MapService.CommandObjects" minOccurs="0" name="GetDetailedMapByPixelLocationResult" nillable="true" type="q3:GetDetailedMapByPixelLocationResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -47,7 +61,7 @@
   <xs:element name="GetDetailedMapByCoordinatesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MapService.CommandObjects" minOccurs="0" name="GetDetailedMapByCoordinatesResult" nillable="true" type="q3:GetDetailedMapByPixelLocationResponse" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MapService.CommandObjects" minOccurs="0" name="GetDetailedMapByCoordinatesResult" nillable="true" type="q4:GetDetailedMapByPixelLocationResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -98,5 +98,23 @@ namespace MapService
                 return response;
             });
         }
+
+        public GetCoordinatesBoundsResponse GetCoordinatesBounds(string mapName)
+        {
+            return ServiceProcessorWrapper.Wrap(() =>
+            {
+                MapMetadata mapMetadata = _databaseReader.GetMapMetadata(mapName);
+
+                GetCoordinatesBoundsResponse response = new GetCoordinatesBoundsResponse
+                {
+                    LatitudeMax = mapMetadata.LatitudeMax,
+                    LatitudeMin = mapMetadata.LatitudeMin,
+                    LongitudeMax = mapMetadata.LongitudeMax,
+                    LongitudeMin = mapMetadata.LongitudeMin
+                };
+
+                return response;
+            });
+        }
     }
 }

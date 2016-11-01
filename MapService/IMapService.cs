@@ -10,6 +10,9 @@ namespace MapService
         GetMapThumbnailResponse GetMapThumbnail(string mapName);
 
         [OperationContract]
+        GetCoordinatesBoundsResponse GetCoordinatesBounds(string mapName);
+
+        [OperationContract]
         GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(string mapName, int x1, int y1, int x2, int y2);
 
         [OperationContract]

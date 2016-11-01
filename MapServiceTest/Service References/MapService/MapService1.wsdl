@@ -13,6 +13,12 @@
   <wsdl:message name="IMapService_GetMapThumbnail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMapThumbnailResponse" />
   </wsdl:message>
+  <wsdl:message name="IMapService_GetCoordinatesBounds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoordinatesBounds" />
+  </wsdl:message>
+  <wsdl:message name="IMapService_GetCoordinatesBounds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoordinatesBoundsResponse" />
+  </wsdl:message>
   <wsdl:message name="IMapService_GetDetailedMapByPixelLocation_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDetailedMapByPixelLocation" />
   </wsdl:message>
@@ -29,6 +35,10 @@
     <wsdl:operation name="GetMapThumbnail">
       <wsdl:input wsaw:Action="http://stm.eti.gda.pl/stm/IMapService/GetMapThumbnail" message="tns:IMapService_GetMapThumbnail_InputMessage" />
       <wsdl:output wsaw:Action="http://stm.eti.gda.pl/stm/IMapService/GetMapThumbnailResponse" message="tns:IMapService_GetMapThumbnail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoordinatesBounds">
+      <wsdl:input wsaw:Action="http://stm.eti.gda.pl/stm/IMapService/GetCoordinatesBounds" message="tns:IMapService_GetCoordinatesBounds_InputMessage" />
+      <wsdl:output wsaw:Action="http://stm.eti.gda.pl/stm/IMapService/GetCoordinatesBoundsResponse" message="tns:IMapService_GetCoordinatesBounds_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDetailedMapByPixelLocation">
       <wsdl:input wsaw:Action="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByPixelLocation" message="tns:IMapService_GetDetailedMapByPixelLocation_InputMessage" />

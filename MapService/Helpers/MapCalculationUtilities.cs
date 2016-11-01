@@ -52,18 +52,8 @@ namespace MapService
 
         public Point GetPointOnOriginalSizeUsingCoordinates(MapMetadata mapMetadata, GeographicSize geographicOriginalSize, Coordinates coordinates)
         {
-
             var newX = ((coordinates.Longitude - mapMetadata.LongitudeMin) / mapMetadata.MapWidth) * 1000;
             var newY = (1 - ((coordinates.Latitude - mapMetadata.LatitudeMin) / mapMetadata.MapHeight)) * 1000;
-
-            //var mapCenterLocation = GetTileLocation(51.4022, 21.1631);
-            //var coordinatesLocation = GetTileLocation(coordinates.Latitude, coordinates.Longitude);
-
-            //var deltaX = coordinatesLocation.Item1 - mapCenterLocation.Item1;
-            //var deltaY = coordinatesLocation.Item2 - mapCenterLocation.Item2;
-
-            //var newX = 500 + deltaX * 256;
-            //var newY = 500 + deltaY * 256;
 
             return new Point((int)newX, (int)newY);
         }

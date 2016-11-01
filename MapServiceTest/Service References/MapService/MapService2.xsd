@@ -23,6 +23,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BaseResponse" nillable="true" type="tns:BaseResponse" />
+  <xs:complexType name="GetCoordinatesBoundsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LatitudeMax" type="xs:double" />
+          <xs:element minOccurs="0" name="LatitudeMin" type="xs:double" />
+          <xs:element minOccurs="0" name="LongitudeMax" type="xs:double" />
+          <xs:element minOccurs="0" name="LongitudeMin" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCoordinatesBoundsResponse" nillable="true" type="tns:GetCoordinatesBoundsResponse" />
   <xs:complexType name="GetDetailedMapByPixelLocationResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseResponse">

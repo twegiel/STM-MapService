@@ -17,6 +17,7 @@ namespace MapServiceTest.MapService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseResponse", Namespace="http://schemas.datacontract.org/2004/07/MapService.CommandObjects")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MapServiceTest.MapService.GetCoordinatesBoundsResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MapServiceTest.MapService.GetMapThumbnailResponse))]
     public partial class BaseResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -88,6 +89,77 @@ namespace MapServiceTest.MapService {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetCoordinatesBoundsResponse", Namespace="http://schemas.datacontract.org/2004/07/MapService.CommandObjects")]
+    [System.SerializableAttribute()]
+    public partial class GetCoordinatesBoundsResponse : MapServiceTest.MapService.BaseResponse {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LatitudeMaxField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LatitudeMinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LongitudeMaxField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LongitudeMinField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LatitudeMax {
+            get {
+                return this.LatitudeMaxField;
+            }
+            set {
+                if ((this.LatitudeMaxField.Equals(value) != true)) {
+                    this.LatitudeMaxField = value;
+                    this.RaisePropertyChanged("LatitudeMax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LatitudeMin {
+            get {
+                return this.LatitudeMinField;
+            }
+            set {
+                if ((this.LatitudeMinField.Equals(value) != true)) {
+                    this.LatitudeMinField = value;
+                    this.RaisePropertyChanged("LatitudeMin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LongitudeMax {
+            get {
+                return this.LongitudeMaxField;
+            }
+            set {
+                if ((this.LongitudeMaxField.Equals(value) != true)) {
+                    this.LongitudeMaxField = value;
+                    this.RaisePropertyChanged("LongitudeMax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LongitudeMin {
+            get {
+                return this.LongitudeMinField;
+            }
+            set {
+                if ((this.LongitudeMinField.Equals(value) != true)) {
+                    this.LongitudeMinField = value;
+                    this.RaisePropertyChanged("LongitudeMin");
+                }
             }
         }
     }
@@ -244,6 +316,12 @@ namespace MapServiceTest.MapService {
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetMapThumbnail", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetMapThumbnailResponse")]
         System.Threading.Tasks.Task<MapServiceTest.MapService.GetMapThumbnailResponse> GetMapThumbnailAsync(string mapName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetCoordinatesBounds", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetCoordinatesBoundsResponse")]
+        MapServiceTest.MapService.GetCoordinatesBoundsResponse GetCoordinatesBounds(string mapName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetCoordinatesBounds", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetCoordinatesBoundsResponse")]
+        System.Threading.Tasks.Task<MapServiceTest.MapService.GetCoordinatesBoundsResponse> GetCoordinatesBoundsAsync(string mapName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByPixelLocation", ReplyAction="http://stm.eti.gda.pl/stm/IMapService/GetDetailedMapByPixelLocationResponse")]
         MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(string mapName, int x1, int y1, int x2, int y2);
         
@@ -290,6 +368,14 @@ namespace MapServiceTest.MapService {
         
         public System.Threading.Tasks.Task<MapServiceTest.MapService.GetMapThumbnailResponse> GetMapThumbnailAsync(string mapName) {
             return base.Channel.GetMapThumbnailAsync(mapName);
+        }
+        
+        public MapServiceTest.MapService.GetCoordinatesBoundsResponse GetCoordinatesBounds(string mapName) {
+            return base.Channel.GetCoordinatesBounds(mapName);
+        }
+        
+        public System.Threading.Tasks.Task<MapServiceTest.MapService.GetCoordinatesBoundsResponse> GetCoordinatesBoundsAsync(string mapName) {
+            return base.Channel.GetCoordinatesBoundsAsync(mapName);
         }
         
         public MapServiceTest.MapService.GetDetailedMapByPixelLocationResponse GetDetailedMapByPixelLocation(string mapName, int x1, int y1, int x2, int y2) {
